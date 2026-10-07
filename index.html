@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>2026 日本四國・廣島・淡路島 12天自駕之旅</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -115,6 +115,82 @@
       color: #777;
       font-size: 0.9em;
     }
+    [hidden] { display: none !important; }
+    * { box-sizing: border-box; }
+    button, select { font: inherit; }
+    button, select, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, select:focus-visible, a:focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 3px;
+    }
+    .day-picker {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px max(15px, env(safe-area-inset-left));
+    }
+    .picker-inner { max-width: 870px; margin: auto; }
+    .picker-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: .85rem; color: var(--primary); }
+    #day-select {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .day-navigation {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 10px max(15px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom));
+    }
+    .navigation-inner { display: flex; gap: 12px; max-width: 870px; margin: auto; }
+    .day-navigation button {
+      flex: 1;
+      min-height: 48px;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      background: white;
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .day-navigation #next-day { background: var(--primary); color: white; }
+    .day-navigation button:disabled { opacity: .35; cursor: default; }
+    body.day-view { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+    .day-header { gap: 12px; }
+    .day-header h2 { flex: 1 1 100%; }
+    .day-content li { margin-bottom: 12px; }
+    .day-content ul { padding-left: 24px; }
+    .day-content { overflow-wrap: anywhere; }
+    @media (max-width: 600px) {
+      header { padding: 20px 16px; text-align: left; }
+      header h1 { font-size: 1.25rem; line-height: 1.5; }
+      header p { font-size: .9rem; }
+      .flight-badge { font-size: .78rem; padding: 8px 12px; border-radius: 10px; color: #2D4036; }
+      .container { margin: 14px auto; padding: 0 12px; }
+      .day-header, .day-content { padding: 16px; }
+      .day-header h2 { font-size: 1.15rem; line-height: 1.6; }
+      .day-image { height: 150px; margin-bottom: 0; }
+      .food-grid { grid-template-columns: 1fr; }
+      .day-card { margin-bottom: 16px; }
+      footer { padding: 12px 20px; font-size: .75rem; }
+    }
+    @media print {
+      .day-picker, .day-navigation { display: none !important; }
+      .day-card[hidden] { display: block !important; }
+      .day-card { break-inside: avoid; }
+      body.day-view { padding-bottom: 0; }
+    }
   </style>
 </head>
 <body>
@@ -125,7 +201,14 @@
   <div class="flight-badge">✈️ 虎航高知包機 ｜ 去程 IT250 (08:40-12:00) ➔ 回程 IT251 (14:00-15:50)</div>
 </header>
 
-<div class="container">
+<nav class="day-picker" aria-label="選擇每日行程" hidden>
+  <div class="picker-inner">
+    <label class="picker-label" for="day-select"><span>選擇行程日期</span><span id="day-progress" aria-live="polite"></span></label>
+    <select id="day-select" aria-controls="itinerary"></select>
+  </div>
+</nav>
+
+<main class="container" id="itinerary">
 
   <!-- Day 1 -->
   <div class="day-card">
@@ -424,11 +507,80 @@
     </div>
   </div>
 
-</div>
+</main>
+
+<nav class="day-navigation" aria-label="切換每日行程" hidden>
+  <div class="navigation-inner">
+    <button id="previous-day" type="button" aria-controls="itinerary">← 前一天</button>
+    <button id="next-day" type="button" aria-controls="itinerary">後一天 →</button>
+  </div>
+</nav>
 
 <footer>
   <p>© 2026 Japan Travel Itinerary. All maps powered by Google Maps.</p>
 </footer>
 
+<script>
+  (() => {
+    const cards = [...document.querySelectorAll('.day-card')];
+    const picker = document.querySelector('.day-picker');
+    const select = document.querySelector('#day-select');
+    const previous = document.querySelector('#previous-day');
+    const next = document.querySelector('#next-day');
+    const storageKey = 'japan-itinerary-2026-day';
+    let current = 0;
+
+    cards.forEach((card, index) => {
+      card.id = `day-${index + 1}`;
+      const heading = card.querySelector('h2');
+      heading.id = `day-title-${index + 1}`;
+      card.setAttribute('aria-labelledby', heading.id);
+      const option = document.createElement('option');
+      option.value = index;
+      option.textContent = heading.textContent.replace(' ｜ ', ' · ');
+      select.append(option);
+      const photo = card.querySelector('img');
+      if (photo) { photo.loading = 'lazy'; photo.decoding = 'async'; }
+    });
+
+    function dayFromHash() {
+      const match = location.hash.match(/^#day-(\d+)$/);
+      const day = match ? Number(match[1]) : 0;
+      return day >= 1 && day <= cards.length ? day - 1 : null;
+    }
+
+    function showDay(index, scroll = false) {
+      current = index;
+      cards.forEach((card, i) => { card.hidden = i !== current; });
+      select.value = current;
+      previous.disabled = current === 0;
+      next.disabled = current === cards.length - 1;
+      document.querySelector('#day-progress').textContent = `第 ${current + 1} / ${cards.length} 天`;
+      try { localStorage.setItem(storageKey, String(current)); } catch (_) {}
+      if (scroll) {
+        window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: 'instant' });
+      }
+    }
+
+    function navigate(index) {
+      if (index < 0 || index >= cards.length) return;
+      location.hash = `day-${index + 1}`;
+    }
+
+    let saved = 0;
+    try {
+      const value = Number(localStorage.getItem(storageKey));
+      if (Number.isInteger(value) && value >= 0 && value < cards.length) saved = value;
+    } catch (_) {}
+    showDay(dayFromHash() ?? saved);
+    document.body.classList.add('day-view');
+    picker.hidden = false;
+    document.querySelector('.day-navigation').hidden = false;
+    select.addEventListener('change', () => navigate(Number(select.value)));
+    previous.addEventListener('click', () => navigate(current - 1));
+    next.addEventListener('click', () => navigate(current + 1));
+    window.addEventListener('hashchange', () => showDay(dayFromHash() ?? 0, true));
+  })();
+</script>
 </body>
 </html>
