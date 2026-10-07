@@ -185,7 +185,37 @@
       .day-card { margin-bottom: 16px; }
       footer { padding: 12px 20px; font-size: .75rem; }
     }
+    .map-dialog {
+      width: min(420px, calc(100% - 32px));
+      max-height: calc(100dvh - 32px);
+      overflow-y: auto;
+      border: 0;
+      border-radius: 18px;
+      padding: 24px;
+      color: var(--text);
+      background: var(--card-bg);
+      box-shadow: 0 12px 48px #0003;
+    }
+    .map-dialog::backdrop { background: #0007; }
+    .map-dialog h2 { margin: 0; font-size: 1.25rem; }
+    .map-dialog p { margin: 10px 0 20px; overflow-wrap: anywhere; }
+    .map-choice, .map-cancel {
+      display: block;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .map-choice { background: var(--primary); color: white; text-decoration: none; }
+    .map-cancel { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    body:has(.map-dialog[open]) { overflow: hidden; }
     @media print {
+      .map-dialog { display: none !important; }
       .day-picker, .day-navigation { display: none !important; }
       .day-card[hidden] { display: block !important; }
       .day-card { break-inside: avoid; }
@@ -220,16 +250,16 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80" alt="桂濱海岸">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>12:00 抵達 <a class="map-link" href="https://maps.app.goo.gl/ChIJ53WsUAIDTjUR5O0Bn0tNmbE" target="_blank">高知龍馬機場</a> 辦理租車手續。</li>
-        <li>探訪 <a class="map-link" href="https://maps.app.goo.gl/ChIJwQDkipMbTjURZnGsPoV8rWE" target="_blank">桂濱公園</a>，欣賞坂本龍馬像與壯麗太平洋海景。</li>
+        <li>12:00 抵達 <a class="map-link" data-map-query="高知龍馬空港 高知県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E7%9F%A5%E9%BE%8D%E9%A6%AC%E7%A9%BA%E6%B8%AF%20%E9%AB%98%E7%9F%A5%E7%9C%8C%20%E6%97%A5%E6%9C%AC">高知龍馬機場</a> 辦理租車手續。</li>
+        <li>探訪 <a class="map-link" data-map-query="桂浜公園 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A1%82%E6%B5%9C%E5%85%AC%E5%9C%92%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">桂濱公園</a>，欣賞坂本龍馬像與壯麗太平洋海景。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
         <div><b>午餐：</b>機場餐廳「司」享用土佐料理</div>
-        <div><b>晚餐：</b><a class="map-link" href="https://maps.app.goo.gl/ChIJ1w_oDToZTjUR3QutG7QRnZk" target="_blank">弘人市場</a> 明火炙燒鰹魚塊、土佐餃子</div>
+        <div><b>晚餐：</b><a class="map-link" data-map-query="ひろめ市場 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%B2%E3%82%8D%E3%82%81%E5%B8%82%E5%A0%B4%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">弘人市場</a> 明火炙燒鰹魚塊、土佐餃子</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/hiuWrP83e5vBjpX56" target="_blank">春野旅館 (はるのゲストハウス)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="はるのゲストハウス 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%AF%E3%82%8B%E3%81%AE%E3%82%B2%E3%82%B9%E3%83%88%E3%83%8F%E3%82%A6%E3%82%B9%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">春野旅館 (はるのゲストハウス)</a><br>
         <small>入住時間：16:00-20:00 ｜ 退房時間：11:00前</small>
       </div>
     </div>
@@ -245,8 +275,8 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="四萬十川">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>前往「日本最後清流」<a class="map-link" href="https://maps.app.goo.gl/ChIJPcB3N1wOTzURPJLzsDO-UxM" target="_blank">四萬十川</a>。</li>
-        <li>走訪代表性沉下橋：<a class="map-link" href="https://maps.app.goo.gl/ChIJEf7M-Lo_TzURdDZdV2C_jSE" target="_blank">佐田沉下橋</a> 與 <a class="map-link" href="https://maps.app.goo.gl/ChIJIVVF-QdrTzUR1V3-2EzTa10" target="_blank">岩間沉下橋</a>，體驗搭乘屋形船。</li>
+        <li>前往「日本最後清流」<a class="map-link" data-map-query="四万十川 高知県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9B%9B%E4%B8%87%E5%8D%81%E5%B7%9D%20%E9%AB%98%E7%9F%A5%E7%9C%8C%20%E6%97%A5%E6%9C%AC">四萬十川</a>。</li>
+        <li>走訪代表性沉下橋：<a class="map-link" data-map-query="佐田沈下橋 四万十市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BD%90%E7%94%B0%E6%B2%88%E4%B8%8B%E6%A9%8B%20%E5%9B%9B%E4%B8%87%E5%8D%81%E5%B8%82%20%E6%97%A5%E6%9C%AC">佐田沉下橋</a> 與 <a class="map-link" data-map-query="岩間沈下橋 四万十市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B2%A9%E9%96%93%E6%B2%88%E4%B8%8B%E6%A9%8B%20%E5%9B%9B%E4%B8%87%E5%8D%81%E5%B8%82%20%E6%97%A5%E6%9C%AC">岩間沉下橋</a>，體驗搭乘屋形船。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -254,7 +284,7 @@
         <div><b>晚餐：</b>宇和島「ほづみ亭」生鯛魚片刺身飯</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/SFbfq5YkpXfrouAk7" target="_blank">宇和島東方飯店 (宇和島オリエンタルホテル)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="宇和島オリエンタルホテル 宇和島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%87%E5%92%8C%E5%B3%B6%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%20%E5%AE%87%E5%92%8C%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">宇和島東方飯店 (宇和島オリエンタルホテル)</a><br>
         <small>入住時間：15:00-23:00 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -271,8 +301,8 @@
       <div class="section-title">📍 景點安排</div>
       <ul>
         <li>探訪仁淀川安居溪谷，感受清澈見底的「仁淀藍」。</li>
-        <li>搭纜車登 <a class="map-link" href="https://maps.app.goo.gl/ChIJG4z5T-vlTzURgnujh60lGEo" target="_blank">松山城</a> 俯瞰市區。</li>
-        <li>傍晚至古老的 <a class="map-link" href="https://maps.app.goo.gl/ChIJ84F-kHjmTzURebGHHI1YWXw" target="_blank">道後溫泉本館</a> 外觀拍照與商店街散策。</li>
+        <li>搭纜車登 <a class="map-link" data-map-query="松山城 松山市 愛媛県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%BE%E5%B1%B1%E5%9F%8E%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%84%9B%E5%AA%9B%E7%9C%8C%20%E6%97%A5%E6%9C%AC">松山城</a> 俯瞰市區。</li>
+        <li>傍晚至古老的 <a class="map-link" data-map-query="道後温泉本館 松山市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%81%93%E5%BE%8C%E6%B8%A9%E6%B3%89%E6%9C%AC%E9%A4%A8%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%97%A5%E6%9C%AC">道後溫泉本館</a> 外觀拍照與商店街散策。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -280,7 +310,7 @@
         <div><b>晚餐：</b>松山鍋燒烏龍麵（朝日/小鳥）</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/HTdds7fbZq1VDnYm9" target="_blank">露櫻飯店 松山北店 (ホテルルートイン松山北)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="ホテルルートイン松山北 松山市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%AB%E3%83%BC%E3%83%88%E3%82%A4%E3%83%B3%E6%9D%BE%E5%B1%B1%E5%8C%97%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%97%A5%E6%9C%AC">露櫻飯店 松山北店 (ホテルルートイン松山北)</a><br>
         <small>入住時間：15:00-00:00 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -296,8 +326,8 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1000&q=80" alt="廣島">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>行經著名的 <a class="map-link" href="https://maps.app.goo.gl/ChIJRQrZdxk7UDURpqXU83dd4g8" target="_blank">島波海道</a> 跨海大橋自駕至本州。</li>
-        <li>參訪世界遺產 <a class="map-link" href="https://maps.app.goo.gl/ChIJgzAzVG2iWjURZRZ1udXOKeE" target="_blank">廣島和平紀念公園</a> 與原爆圓頂。</li>
+        <li>行經著名的 <a class="map-link" data-map-query="しまなみ海道 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%97%E3%81%BE%E3%81%AA%E3%81%BF%E6%B5%B7%E9%81%93%20%E6%97%A5%E6%9C%AC">島波海道</a> 跨海大橋自駕至本州。</li>
+        <li>參訪世界遺產 <a class="map-link" data-map-query="平和記念公園 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B9%B3%E5%92%8C%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">廣島和平紀念公園</a> 與原爆圓頂。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -305,7 +335,7 @@
         <div><b>晚餐：</b>廣島站「みっちゃん」廣島風御好燒（廣島燒）</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/HmaVC3HQ3pJzvogw9" target="_blank">東橫 INN 廣島站前新幹線口 1 號</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="東横INN広島駅新幹線口1 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E6%A8%AAINN%E5%BA%83%E5%B3%B6%E9%A7%85%E6%96%B0%E5%B9%B9%E7%B7%9A%E5%8F%A31%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">東橫 INN 廣島站前新幹線口 1 號</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -321,9 +351,9 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1000&q=80" alt="嚴島神社">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>早晨至 <a class="map-link" href="https://maps.app.goo.gl/dSJXowumWKgvTKXF8" target="_blank">長屋門珈琲店</a> 享用早餐。</li>
-        <li>搭渡輪前往宮島參訪 <a class="map-link" href="https://maps.app.goo.gl/ChIJj23HfgTjGmARkNW10PcocjU" target="_blank">嚴島神社</a> 海上大鳥居與表參道。</li>
-        <li>開車至岡山，漫步夕陽與夜景下的 <a class="map-link" href="https://maps.app.goo.gl/ChIJ1do4lkdWUTURvg3rFkFpzhE" target="_blank">倉敷美觀地區</a>。</li>
+        <li>早晨至 <a class="map-link" data-map-query="長屋門珈琲店 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%95%B7%E5%B1%8B%E9%96%80%E7%8F%88%E7%90%B2%E5%BA%97%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">長屋門珈琲店</a> 享用早餐。</li>
+        <li>搭渡輪前往宮島參訪 <a class="map-link" data-map-query="厳島神社 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">嚴島神社</a> 海上大鳥居與表參道。</li>
+        <li>開車至岡山，漫步夕陽與夜景下的 <a class="map-link" data-map-query="倉敷美観地区 倉敷市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%20%E5%80%89%E6%95%B7%E5%B8%82%20%E6%97%A5%E6%9C%AC">倉敷美觀地區</a>。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -332,7 +362,7 @@
         <div><b>晚餐：</b>倉敷「梅の木」味噌豬排 / 千屋牛燒肉</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/f1m7JutnFQQZVd8m7" target="_blank">一五花園倉敷飯店 (ザ・ワンファイブガーデン倉敷)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="ザ・ワンファイブガーデン倉敷 倉敷市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B6%E3%83%BB%E3%83%AF%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%96%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E5%80%89%E6%95%B7%20%E5%80%89%E6%95%B7%E5%B8%82%20%E6%97%A5%E6%9C%AC">一五花園倉敷飯店 (ザ・ワンファイブガーデン倉敷)</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -348,7 +378,7 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1000&q=80" alt="姬路城">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>參訪日本三大名城與世界遺產 <a class="map-link" href="https://maps.app.goo.gl/ChIJsyQzogPgVDURsYG6bi-MT3o" target="_blank">姬路城</a>。</li>
+        <li>參訪日本三大名城與世界遺產 <a class="map-link" data-map-query="姫路城 姫路市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E%20%E5%A7%AB%E8%B7%AF%E5%B8%82%20%E6%97%A5%E6%9C%AC">姬路城</a>。</li>
         <li>行經明石海峽大橋進入淡路島，體驗二次元之森或海岸咖啡廳。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
@@ -357,7 +387,7 @@
         <div><b>晚餐：</b>淡路島洋蔥漢堡 / 淡路牛燒肉料理</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/poQWeP4uQkqAamEe7" target="_blank">SAKIA STAY (淡路島)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="SAKIA STAY 淡路島 日本" href="https://www.google.com/maps/search/?api=1&amp;query=SAKIA%20STAY%20%E6%B7%A1%E8%B7%AF%E5%B3%B6%20%E6%97%A5%E6%9C%AC">SAKIA STAY (淡路島)</a><br>
         <small>入住時間：15:00-20:00 ｜ 退房時間：08:00-10:00</small>
       </div>
     </div>
@@ -382,7 +412,7 @@
         <div><b>晚餐：</b>德島市區「麺王」濃郁德島拉麵（搭生雞蛋）</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/eYsfkUQZtffE17bF6" target="_blank">東橫 INN 德島駅眉山口</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="東横INN徳島駅眉山口 徳島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E6%A8%AAINN%E5%BE%B3%E5%B3%B6%E9%A7%85%E7%9C%89%E5%B1%B1%E5%8F%A3%20%E5%BE%B3%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">東橫 INN 德島駅眉山口</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -399,7 +429,7 @@
       <div class="section-title">📍 景點安排</div>
       <ul>
         <li>開車至高松港搭乘渡輪（人車同行）前往小豆島。</li>
-        <li>走訪 <a class="map-link" href="https://maps.app.goo.gl/ChIJC-KIFXR4VDURasxl3L0o26M" target="_blank">小豆島橄欖公園</a> 騎掃帚拍照、寒霞溪纜車賞楓與天使之路。</li>
+        <li>走訪 <a class="map-link" data-map-query="小豆島オリーブ公園 香川県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%82%AA%E3%83%AA%E3%83%BC%E3%83%96%E5%85%AC%E5%9C%92%20%E9%A6%99%E5%B7%9D%E7%9C%8C%20%E6%97%A5%E6%9C%AC">小豆島橄欖公園</a> 騎掃帚拍照、寒霞溪纜車賞楓與天使之路。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -407,7 +437,7 @@
         <div><b>晚餐：</b>小豆島當地海鮮居酒屋</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/QHYvmRkPGDAvRwHH7" target="_blank">KAKA Guesthouse Shodoshima</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="KAKA Guesthouse Shodoshima 小豆島 日本" href="https://www.google.com/maps/search/?api=1&amp;query=KAKA%20Guesthouse%20Shodoshima%20%E5%B0%8F%E8%B1%86%E5%B3%B6%20%E6%97%A5%E6%9C%AC">KAKA Guesthouse Shodoshima</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -423,7 +453,7 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="栗林公園">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li>搭渡輪返回高松，參觀四國最著名的回遊式日本庭園 <a class="map-link" href="https://maps.app.goo.gl/ChIJUc4SILrrUzURFEFMQod9v7g" target="_blank">栗林公園</a>。</li>
+        <li>搭渡輪返回高松，參觀四國最著名的回遊式日本庭園 <a class="map-link" data-map-query="栗林公園 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%97%E6%9E%97%E5%85%AC%E5%9C%92%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">栗林公園</a>。</li>
         <li>瓦町商店街購物散策，享受溫泉飯店。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
@@ -432,7 +462,7 @@
         <div><b>晚餐：</b>香川必吃名物「骨付鳥一鶴 (IKKAKU)」帶骨烤雞腿</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/ScEXVoaSVAaqaRhX6" target="_blank">Dormy Inn高松中央公園前天然溫泉飯店</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="ドーミーイン高松中央公園前 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%89%E3%83%BC%E3%83%9F%E3%83%BC%E3%82%A4%E3%83%B3%E9%AB%98%E6%9D%BE%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92%E5%89%8D%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">Dormy Inn高松中央公園前天然溫泉飯店</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：11:00前</small>
       </div>
     </div>
@@ -449,7 +479,7 @@
       <div class="section-title">📍 景點安排</div>
       <ul>
         <li>挑戰參拜一生必去一次的「金刀比羅宮」（785 階台階至本宮）。</li>
-        <li>參訪擁有全日本最高石垣的 <a class="map-link" href="https://maps.app.goo.gl/ChIJOYne3YfYUzURK25ZOY5YWCg" target="_blank">丸龜城</a>。</li>
+        <li>參訪擁有全日本最高石垣的 <a class="map-link" data-map-query="丸亀城 丸亀市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%B8%E4%BA%80%E5%9F%8E%20%E4%B8%B8%E4%BA%80%E5%B8%82%20%E6%97%A5%E6%9C%AC">丸龜城</a>。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -457,7 +487,7 @@
         <div><b>晚餐：</b>琴平町內骨付鳥居酒屋</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/ijnMhFAecw487u5D9" target="_blank">琴平公園飯店 (KOTOHIRA PARK HOTEL)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="琴平パークホテル 琴平町 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%90%B4%E5%B9%B3%E3%83%91%E3%83%BC%E3%82%AF%E3%83%9B%E3%83%86%E3%83%AB%20%E7%90%B4%E5%B9%B3%E7%94%BA%20%E6%97%A5%E6%9C%AC">琴平公園飯店 (KOTOHIRA PARK HOTEL)</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -474,7 +504,7 @@
       <div class="section-title">📍 景點安排</div>
       <ul>
         <li>深入德島山區探訪祖谷溪，走過祖谷藤蔓橋、搭乘大步危峽觀光遊覽船。</li>
-        <li>返回高知，參訪現存十二天守之一的 <a class="map-link" href="https://maps.app.goo.gl/ChIJ_ZQBiCQZTjURDgmM1D29DRU" target="_blank">高知城</a> 與帶屋町商店街採買。</li>
+        <li>返回高知，參訪現存十二天守之一的 <a class="map-link" data-map-query="高知城 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E7%9F%A5%E5%9F%8E%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">高知城</a> 與帶屋町商店街採買。</li>
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
@@ -482,7 +512,7 @@
         <div><b>晚餐：</b>高知市區「明神丸」土佐赤牛燒肉 / 軍雞鍋</div>
       </div>
       <div class="hotel-box">
-        <b>🏨 住宿：</b><a class="map-link" href="https://maps.app.goo.gl/76xjs6hE5i3pGQF29" target="_blank">高知舒適飯店 (コンフォートホテル高知)</a><br>
+        <b>🏨 住宿：</b><a class="map-link" data-map-query="コンフォートホテル高知 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E7%9F%A5%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">高知舒適飯店 (コンフォートホテル高知)</a><br>
         <small>入住時間：15:00後 ｜ 退房時間：10:00前</small>
       </div>
     </div>
@@ -516,8 +546,16 @@
   </div>
 </nav>
 
+<dialog class="map-dialog" id="map-dialog" aria-labelledby="map-dialog-title" aria-describedby="map-place-name">
+  <h2 id="map-dialog-title">要用哪個地圖開啟？</h2>
+  <p id="map-place-name"></p>
+  <a class="map-choice" id="apple-map-choice">Apple 地圖</a>
+  <a class="map-choice" id="google-map-choice">Google 地圖</a>
+  <button class="map-cancel" id="map-cancel" type="button">取消</button>
+</dialog>
+
 <footer>
-  <p>© 2026 Japan Travel Itinerary. All maps powered by Google Maps.</p>
+  <p>© 2026 Japan Travel Itinerary. 支援 Apple 地圖與 Google 地圖。</p>
 </footer>
 
 <script>
@@ -527,6 +565,36 @@
     const select = document.querySelector('#day-select');
     const previous = document.querySelector('#previous-day');
     const next = document.querySelector('#next-day');
+    const mapDialog = document.querySelector('#map-dialog');
+    const appleMap = document.querySelector('#apple-map-choice');
+    const googleMap = document.querySelector('#google-map-choice');
+    // Use official HTTPS search links so uninstalled apps can fall back to the web.
+    // https://developers.google.com/maps/documentation/urls/get-started
+    // https://developer.apple.com/documentation/mapkit/unified-map-urls
+    document.querySelectorAll('.map-link').forEach(link => {
+      if (typeof mapDialog.showModal !== 'function') return;
+      link.setAttribute('aria-haspopup', 'dialog');
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        const query = encodeURIComponent(link.dataset.mapQuery);
+        document.querySelector('#map-place-name').textContent = link.textContent;
+        appleMap.href = `https://maps.apple.com/?q=${query}`;
+        googleMap.href = link.href;
+        mapDialog.showModal();
+      });
+    });
+    document.querySelector('#map-cancel').addEventListener('click', () => mapDialog.close());
+    mapDialog.addEventListener('click', event => {
+      if (event.target !== mapDialog) return;
+      const rect = mapDialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right ||
+          event.clientY < rect.top || event.clientY > rect.bottom) mapDialog.close();
+    });
+    // Keep navigation directly on the user's tap for iOS universal-link handling.
+    [appleMap, googleMap].forEach(link => {
+      link.addEventListener('click', () => mapDialog.close());
+    });
     const storageKey = 'japan-itinerary-2026-day';
     let current = 0;
 
