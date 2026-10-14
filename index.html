@@ -185,6 +185,12 @@
       .day-card { margin-bottom: 16px; }
       footer { padding: 12px 20px; font-size: .75rem; }
     }
+    .ferry-note { margin: 16px 0; padding: 12px 14px; background: #EEF5FA; border: 1px solid #C9DAE7; border-radius: 10px; }
+    .ferry-note .section-title { margin-top: 0; }
+    .ferry-note p { margin: 10px 0; }
+    .ferry-note a { color: #1A6099; }
+    .ferry-note summary { cursor: pointer; min-height: 44px; padding: 10px 0; font-weight: 700; }
+    @media print { .ferry-note > * { display: block !important; } }
     .autumn-note {
       margin: 16px 0;
       padding: 12px 14px;
@@ -252,7 +258,7 @@
 <details class="planning-note">
   <summary>🍁 賞楓安排與時間說明（2026/10/13 更新）</summary>
   <p>依 <a href="https://japantravel.navitime.com/zh-tw/area/jp/feature/autumn/" target="_blank" rel="noopener noreferrer">NAVITIME 紅葉指南</a> 的歷年觀賞期篩選順路景點，並補充園方與地方觀光資料。歷年時期與現在葉況不是旅行當天的預測保證；出發前 3–7 天再查看最新葉況。</p>
-  <p>以下鐘點為建議行程，車程與排隊為規劃預留值，並非即時導航或已訂船班；均以日本當地時間（比台灣快 1 小時）表示。優先保留住宿、11/24 中午前上宮島與日落後回程，以及 11/27 觀潮船；延誤時先刪減備選點。夜楓活動未確認 2026 場次者，不列固定行程。</p>
+  <p>以下鐘點為建議行程，車程與排隊為規劃預留值，並非即時導航或已訂船班；均以日本當地時間（比台灣快 1 小時）表示。優先保留住宿、11/24 08:00 出發、宮島退潮觀景與日落後回程，以及 11/27 觀潮船；延誤時先刪減備選點。夜楓活動未確認 2026 場次者，不列固定行程。</p>
 </details>
 
 <main class="container" id="itinerary">
@@ -272,6 +278,7 @@
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>機場餐廳（出發機場，搭機前用餐）；預留報到與安檢時間。</div>
         <div><b>午餐：</b>機場餐廳「司」享用土佐料理</div>
         <div><b>晚餐：</b><a class="map-link" data-map-query="ひろめ市場 高知市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%B2%E3%82%8D%E3%82%81%E5%B8%82%E5%A0%B4%20%E9%AB%98%E7%9F%A5%E5%B8%82%20%E6%97%A5%E6%9C%AC">弘人市場</a> 明火炙燒鰹魚塊、土佐餃子</div>
       </div>
@@ -297,6 +304,7 @@
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>無飯店早餐。建議 07:00–07:45 至 <a class="map-link" data-map-query="コメダ珈琲店 土佐道路店 高知市針木東町26-26" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%A1%E3%83%80%E7%8F%88%E7%90%B2%E5%BA%97%20%E5%9C%9F%E4%BD%90%E9%81%93%E8%B7%AF%E5%BA%97%20%E9%AB%98%E7%9F%A5%E5%B8%82%E9%87%9D%E6%9C%A8%E6%9D%B1%E7%94%BA26-26">Komeda 珈琲・土佐道路店</a>，飲料搭吐司與蛋，吃完往四萬十川。出發前確認當日開門時間；若未營業或需排隊，改買便利商店飯糰、三明治，避免延後長途車程。<br><small><a href="https://www.komeda.co.jp/menu/morning_komeda.html" target="_blank" rel="noopener noreferrer">官方早餐菜單</a>（開店至 11:00） · <a href="https://www.komeda.co.jp/shop/" target="_blank" rel="noopener noreferrer">官方門市查詢</a></small></div>
         <div><b>午餐：</b>四萬十川屋形船便當 / 野生香魚、鰻魚飯</div>
         <div><b>晚餐：</b>宇和島「ほづみ亭」生鯛魚片刺身飯</div>
       </div>
@@ -314,17 +322,18 @@
       <span class="day-badge">🚗 主線：宇和島 ➔ 松山</span>
     </div>
     <div class="day-content">
-      <img class="day-image" src="https://images.unsplash.com/photo-1528164344705-47542687990d?auto=format&fit=crop&w=1000&q=80" alt="松山城">
+      <!-- Matsuyama Castle photo: Urashimataro, public domain. https://commons.wikimedia.org/wiki/File:Matsuyama_Castle_(Iyo).jpg -->
+      <img class="day-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Matsuyama_Castle_%28Iyo%29.jpg/960px-Matsuyama_Castle_%28Iyo%29.jpg" alt="松山城">
       <div class="section-title">📍 景點安排</div>
       <ul>
         <li><b>08:30–10:00 宇和島城</b> — 早餐、退房後前往 <a class="map-link" data-map-query="宇和島城 宇和島市 愛媛県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%87%E5%92%8C%E5%B3%B6%E5%9F%8E%20%E5%AE%87%E5%92%8C%E5%B3%B6%E5%B8%82%20%E6%84%9B%E5%AA%9B%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宇和島城</a>，預留登城步行時間，配合 09:00 天守開放入內參觀，10:00 左右離開，接著往松山；交通、停車與午餐合計預留約 3 小時。<br><small>11 月天守開放 09:00–16:00，城山開放 06:00–17:00。<a href="https://www.city.uwajima.ehime.jp/site/uwajima-jo/ujouannnai3.html" target="_blank" rel="noopener noreferrer">官方資訊</a></small></li>
         <li><b>13:00–15:00：</b>搭纜車登 <a class="map-link" data-map-query="松山城 松山市 愛媛県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%BE%E5%B1%B1%E5%9F%8E%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%84%9B%E5%AA%9B%E7%9C%8C%20%E6%97%A5%E6%9C%AC">松山城</a> 俯瞰市區。</li>
         <li><b>16:00 後：</b>至古老的 <a class="map-link" data-map-query="道後温泉本館 松山市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%81%93%E5%BE%8C%E6%B8%A9%E6%B3%89%E6%9C%AC%E9%A4%A8%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%97%A5%E6%9C%AC">道後溫泉本館</a> 外觀拍照與<a class="map-link" data-map-query="道後商店街 松山市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97%20%E6%9D%BE%E5%B1%B1%E5%B8%82%20%E6%97%A5%E6%9C%AC">道後商店街</a>散策。</li>
-        <li><b>替代路線，不與松山城同排：</b>探訪<a class="map-link" data-map-query="安居渓谷 仁淀川町 高知県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%89%E5%B1%85%E6%B8%93%E8%B0%B7%20%E4%BB%81%E6%B7%80%E5%B7%9D%E7%94%BA%20%E9%AB%98%E7%9F%A5%E7%9C%8C%20%E6%97%A5%E6%9C%AC">仁淀川安居溪谷</a>，感受「仁淀藍」。此點需繞行山路；若選擇前往，當天取消松山城入內參觀，先確認導航往返時間，山區行程於天黑前結束。</li>
       </ul>
-      <div class="autumn-note"><b>時間取捨：</b>以兩座城池與道後溫泉為主線，安居溪谷保留為替代方案；這天不再加遠途賞楓點。11/23 為日本假日，城池排隊多時優先縮短購物。</div>
+      <div class="autumn-note"><b>時間取捨：</b>以宇和島城、松山城與道後溫泉為主線，這天不再加遠途賞楓點。11/23 為日本假日，城池排隊多時優先縮短購物。</div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜宇和島東方飯店（前一晚住宿）。建議 07:00–07:45 用餐、退房後前往宇和島城；供餐方式與開始時間依住宿安排確認。</div>
         <div><b>午餐：</b>松山「五志喜」五色素麵與鯛魚飯</div>
         <div><b>晚餐：</b>松山鍋燒烏龍麵（朝日/小鳥）</div>
       </div>
@@ -345,17 +354,18 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1000&q=80" alt="嚴島神社">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li><b>05:00 左右出發：</b>從松山出發，行經著名的 <a class="map-link" data-map-query="しまなみ海道 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%97%E3%81%BE%E3%81%AA%E3%81%BF%E6%B5%B7%E9%81%93%20%E6%97%A5%E6%9C%AC">島波海道</a> 跨海大橋自駕至本州，直接前往<a class="map-link" data-map-query="宮島口 フェリー乗り場 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E5%8F%A3%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島口</a>，以 11:00 前抵達為目標，公路移動、休息與停車候船合計預留約 6 小時；途中不加城池或賞楓停留，出發前用導航確認路況。</li>
-        <li><b>中午 12:00 前：</b>在 <a class="map-link" data-map-query="宮島口 フェリー乗り場 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E5%8F%A3%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島口渡輪碼頭</a> 搭乘渡輪前往<a class="map-link" data-map-query="宮島 廿日市市 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島</a>。</li>
-        <li><b>12:00–13:30：</b>參訪 <a class="map-link" data-map-query="厳島神社 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">嚴島神社</a>，欣賞<a class="map-link" data-map-query="厳島神社 大鳥居 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%A4%A7%E9%B3%A5%E5%B1%85%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">海上大鳥居</a>；在<a class="map-link" data-map-query="宮島表参道商店街 廿日市市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E8%A1%A8%E5%8F%82%E9%81%93%E5%95%86%E5%BA%97%E8%A1%97%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E6%97%A5%E6%9C%AC">表參道商店街</a>用餐散策。</li>
-        <li><b>13:30–14:30 🍁 新增：</b><a class="map-link" data-map-query="紅葉谷公園 宮島 廿日市市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%B4%85%E8%91%89%E8%B0%B7%E5%85%AC%E5%9C%92%20%E5%AE%AE%E5%B3%B6%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E6%97%A5%E6%9C%AC">紅葉谷公園</a> 賞楓散步，含神社周邊往返步行預留約 1 小時。14:30 開始返回海邊，15:00 前回到大鳥居周邊。</li>
+        <li><b>08:00 出發：</b>從松山出發，行經著名的 <a class="map-link" data-map-query="しまなみ海道 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%97%E3%81%BE%E3%81%AA%E3%81%BF%E6%B5%B7%E9%81%93%20%E6%97%A5%E6%9C%AC">島波海道</a> 跨海大橋自駕至本州，直接前往<a class="map-link" data-map-query="宮島口 フェリー乗り場 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E5%8F%A3%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島口</a>，公路移動、休息、簡便午餐與停車候船合計先預留約 6 小時，以 14:00 左右搭船為規劃目標（非即時導航估算）；途中不加城池或賞楓停留，出發前用導航確認路況。</li>
+        <li><b>約 14:00–14:30：</b>在 <a class="map-link" data-map-query="宮島口 フェリー乗り場 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E5%8F%A3%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島口渡輪碼頭</a> 搭乘渡輪前往<a class="map-link" data-map-query="宮島 廿日市市 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島</a>。</li>
+        <li><b>約 14:30–15:00：</b>參訪 <a class="map-link" data-map-query="厳島神社 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">嚴島神社</a>，欣賞<a class="map-link" data-map-query="厳島神社 大鳥居 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%A4%A7%E9%B3%A5%E5%B1%85%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">海上大鳥居</a>；稍後有空再到<a class="map-link" data-map-query="宮島表参道商店街 廿日市市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E8%A1%A8%E5%8F%82%E9%81%93%E5%95%86%E5%BA%97%E8%A1%97%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E6%97%A5%E6%9C%AC">表參道商店街</a>買點心、散策。若上島較晚，先到大鳥居看退潮，再參拜神社並確認當日最後入場時間。</li>
         <li><b>15:00–15:45：</b><a class="map-link" data-map-query="厳島神社 大鳥居 宮島 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%20%E5%A4%A7%E9%B3%A5%E5%B1%85%20%E5%AE%AE%E5%B3%B6%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">海上大鳥居</a>周邊觀景拍照。<br><small><b>大鳥居退潮時間：</b>15:21（潮位 101 cm）；依你提供的潮汐資料保留。</small></li>
+        <li><b>15:45 後 🍁 彈性備選：</b><a class="map-link" data-map-query="紅葉谷公園 宮島 廿日市市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%B4%85%E8%91%89%E8%B0%B7%E5%85%AC%E5%9C%92%20%E5%AE%AE%E5%B3%B6%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E6%97%A5%E6%9C%AC">紅葉谷公園</a> 僅在神社參拜完成且天光充足時，於入口附近短暫賞楓，含往返控制在約 30 分鐘；時間不足就略過，優先回海邊欣賞日落。</li>
         <li><b>傍晚至日落後：</b>16:00 後逛表參道、留在<a class="map-link" data-map-query="宮島 廿日市市 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%20%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島</a>欣賞日落，日落後才搭渡輪返回<a class="map-link" data-map-query="宮島口 フェリー乗り場 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%AE%E5%B3%B6%E5%8F%A3%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">宮島口</a>，再開車回廣島市區用餐、入住飯店。</li>
       </ul>
-      <div class="autumn-note"><b>🍁 紅葉谷：歷年 11 月中旬–下旬。</b>11/24 落在參考賞楓期；當天不加彌山纜車。若上島延誤，紅葉谷縮短為入口附近散步，保留退潮觀景與日落後回程。<a href="https://japantravel.navitime.com/zh-tw/area/jp/spot/90011-al00106/" target="_blank" rel="noopener noreferrer">NAVITIME 賞楓資料</a></div>
+      <div class="autumn-note"><b>🍁 紅葉谷：歷年 11 月中旬–下旬。</b>11/24 落在參考賞楓期；改為 08:00 出發後，紅葉谷僅作短停備選，不加彌山纜車。原本「中午前搭船」無法沿用，改以午後上島規劃；15:21 退潮為固定時刻，若交通延誤可能趕不上，優先直往大鳥居，取消紅葉谷與購物。維持日落後回程。<a href="https://japantravel.navitime.com/zh-tw/area/jp/spot/90011-al00106/" target="_blank" rel="noopener noreferrer">NAVITIME 賞楓資料</a></div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
-        <div><b>午餐：</b>宮島穴子魚（星鰻）飯、烤牡蠣</div>
+        <div><b>早餐：</b>飯店早餐｜露櫻飯店松山北店（前一晚住宿）。官方供餐 06:30–09:00；安排 07:00–07:40 用餐，接著退房、裝行李，08:00 出發。<br><small><a href="https://www.route-inn.co.jp/hotel_list/ehime/index_hotel_id_782/restaurant/" target="_blank" rel="noopener noreferrer">飯店官方早餐時間</a></small></div>
+        <div><b>午餐：</b>途中休息站簡便用餐，納入交通預留時間；宮島穴子魚（星鰻）飯、烤牡蠣改為上島後有空再享用</div>
         <div><b>晚餐：</b>返回廣島後，廣島站「みっちゃん」廣島風御好燒（廣島燒）</div>
       </div>
       <div class="hotel-box">
@@ -375,7 +385,7 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1000&q=80" alt="廣島">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li><b>07:00–08:00：</b>早晨至 <a class="map-link" data-map-query="長屋門珈琲店 広島県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%95%B7%E5%B1%8B%E9%96%80%E7%8F%88%E7%90%B2%E5%BA%97%20%E5%BA%83%E5%B3%B6%E7%9C%8C%20%E6%97%A5%E6%9C%AC">長屋門珈琲店</a> 享用早餐；若店家開門較晚，改在飯店用餐。</li>
+        <li><b>07:00–07:40：</b>在前一晚住宿的東橫 INN 廣島站前新幹線口 1 號享用飯店早餐，退房後前往和平紀念資料館。</li>
         <li><b>08:30–11:30：</b>參觀 <a class="map-link" data-map-query="広島平和記念資料館 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%BA%83%E5%B3%B6%E5%B9%B3%E5%92%8C%E8%A8%98%E5%BF%B5%E8%B3%87%E6%96%99%E9%A4%A8%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">廣島和平紀念資料館（原爆紀念館）</a>，接著走訪 <a class="map-link" data-map-query="平和記念公園 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B9%B3%E5%92%8C%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">廣島和平紀念公園</a> 與<a class="map-link" data-map-query="原爆ドーム 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8E%9F%E7%88%86%E3%83%89%E3%83%BC%E3%83%A0%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">原爆圓頂</a>。</li>
         <li><b>午餐後備選 A：廣島城（30–45 分鐘）</b> — 原爆紀念館與和平紀念公園參觀後，午餐後可到 <a class="map-link" data-map-query="広島城 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%BA%83%E5%B3%B6%E5%9F%8E%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">廣島城</a> 拍攝外觀、沿護城河散策；若參觀較久，直接前往倉敷；與下方縮景園二選一。<br><small>天守已於 2026/3/22 閉館，本次不安排進入天守。<a href="https://www.city.hiroshima.lg.jp/www/koho/shimintoshiseir080315/shimintoshisei/event/eve10.html" target="_blank" rel="noopener noreferrer">官方資訊</a></small></li>
         <li><b>12:30–13:30 備選 B 🍁：</b><a class="map-link" data-map-query="縮景園 広島市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%B8%AE%E6%99%AF%E5%9C%92%20%E5%BA%83%E5%B3%B6%E5%B8%82%20%E6%97%A5%E6%9C%AC">縮景園</a> 庭園賞楓；與廣島城二選一，不兩站都去。若資料館逛到中午以後，兩個備選都略過，先用餐再往倉敷。</li>
@@ -384,7 +394,7 @@
       <div class="autumn-note"><b>🍁 縮景園為市區備選。</b>參考歷年 11 月下旬–12 月上旬；新增停留最多 1 小時，以 16:30 左右抵達倉敷為規劃目標，保留傍晚散策。<a href="https://koyo.walkerplus.com/detail/ar0834e570894/data.html" target="_blank" rel="noopener noreferrer">歷年賞楓期</a> · <a href="https://shukkeien.jp/" target="_blank" rel="noopener noreferrer">園方資訊</a></div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
-        <div><b>早餐：</b>長屋門珈琲店</div>
+        <div><b>早餐：</b>飯店早餐｜東橫 INN 廣島站前新幹線口 1 號（前一晚住宿）。建議 07:00–07:40 用餐，退房與移動後 08:30 開始和平紀念資料館行程。</div>
         <div><b>午餐：</b>廣島市區午餐／廣島燒</div>
         <div><b>晚餐：</b>倉敷「梅の木」味噌豬排 / 千屋牛燒肉</div>
       </div>
@@ -413,6 +423,7 @@
       <div class="autumn-note"><b>🍁 好古園：歷年 11 月下旬–12 月上旬。</b>11/26 安排白天參觀；不等待夜楓，以配合淡路島住宿 20:00 前入住。倉敷至姬路的移動與停車預留約 2 小時。<a href="https://realtrip-himeji.com/ja/thingstodo/159318/" target="_blank" rel="noopener noreferrer">姬路賞楓資料</a></div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>無飯店早餐。建議前晚散策時在 <a class="map-link" data-map-query="ローソン 倉敷阿知二丁目 岡山県倉敷市阿知2-10-21" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%AD%E3%83%BC%E3%82%BD%E3%83%B3%20%E5%80%89%E6%95%B7%E9%98%BF%E7%9F%A5%E4%BA%8C%E4%B8%81%E7%9B%AE%20%E5%B2%A1%E5%B1%B1%E7%9C%8C%E5%80%89%E6%95%B7%E5%B8%82%E9%98%BF%E7%9F%A52-10-21">LAWSON 倉敷阿知二丁目店</a> 買好飯糰／三明治、優格與飲料，需冷藏食品放飯店冰箱；06:30–07:00 在房內吃，07:30 準時往姬路。也可早上購買，但不安排等 08:00 才開門的咖啡店。</div>
         <div><b>午餐：</b>姬路城前「たまごや」雞蛋拌飯 / 姬路生薑醬油關東煮</div>
         <div><b>晚餐：</b>淡路島洋蔥漢堡 / 淡路牛燒肉料理</div>
       </div>
@@ -441,6 +452,7 @@
       <div class="autumn-note"><b>時間取捨：</b>這天已有渦之道、觀潮船與阿波舞，不新增賞楓繞路。鳴門區域含午餐、交通與候船預留半天；船班較晚時先取消德島城跡備選。</div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜SAKIA STAY（前一晚住宿）。用餐與退房後往鳴門；前晚確認供餐時段，配合當日觀潮船班安排出發。</div>
         <div><b>午餐：</b>鳴門海鮮丼 / 鳴門鯛魚料理</div>
         <div><b>晚餐：</b>德島市區「麺王」濃郁德島拉麵（搭生雞蛋）</div>
       </div>
@@ -461,14 +473,33 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1000&q=80" alt="小豆島">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li><b>清晨離開德島：</b>往 <a class="map-link" data-map-query="高松港 フェリー乗り場 香川県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E6%9D%BE%E6%B8%AF%20%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%E4%B9%97%E3%82%8A%E5%A0%B4%20%E9%A6%99%E5%B7%9D%E7%9C%8C%20%E6%97%A5%E6%9C%AC">高松港</a> 的自駕與停車預留約 1.5–2 小時，車輛報到另留 45–60 分鐘；選擇能在 10:30 前抵達 <a class="map-link" data-map-query="小豆島 香川県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%20%E9%A6%99%E5%B7%9D%E7%9C%8C%20%E6%97%A5%E6%9C%AC">小豆島</a> 的人車渡輪。此為抵達目標，實際船班與車位須向船公司確認。</li>
-        <li><b>上島後優先 🍁：</b><a class="map-link" data-map-query="寒霞渓ロープウェイ 小豆島 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AF%92%E9%9C%9E%E6%B8%93%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E5%B0%8F%E8%B1%86%E5%B3%B6%20%E6%97%A5%E6%9C%AC">寒霞溪纜車</a>，港口到景區的山路移動預留約 1 小時，纜車往返、排隊與觀景共留 2–2.5 小時，午餐另留 45 分鐘；約 14:00–14:30 離開景區。</li>
+        <li><b>06:00 左右離開德島：</b>開車前往 <a class="map-link" data-map-query="小豆島フェリー 高松港 土庄行き 香川県高松市サンポート8-22" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E9%AB%98%E6%9D%BE%E6%B8%AF%20%E5%9C%9F%E5%BA%84%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E9%AB%98%E6%9D%BE%E5%B8%82%E3%82%B5%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%888-22">高松港・土庄行人車渡輪乘船處</a>，預留約 2 小時抵達與找候船車道；08:00–08:15 報到購票，搭 09:00 人車渡輪，10:00 抵達 <a class="map-link" data-map-query="小豆島フェリー 土庄港 高松行き 香川県小豆郡土庄町甲6194-11" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E5%9C%9F%E5%BA%84%E6%B8%AF%20%E9%AB%98%E6%9D%BE%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E5%B0%8F%E8%B1%86%E9%83%A1%E5%9C%9F%E5%BA%84%E7%94%BA%E7%94%B26194-11">土庄港・高松行人車渡輪乘船處</a>。下船及駛離碼頭另留約 15–20 分鐘。</li>
+        <li><b>上島後優先 🍁：</b><a class="map-link" data-map-query="寒霞渓ロープウェイ 小豆島 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AF%92%E9%9C%9E%E6%B8%93%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E5%B0%8F%E8%B1%86%E5%B3%B6%20%E6%97%A5%E6%9C%AC">寒霞溪纜車</a>，港口到景區的山路移動預留約 1 小時，纜車往返、排隊與觀景共留 2–2.5 小時，午餐另留 45 分鐘；約 14:30 離開景區。</li>
         <li><b>15:00–16:00：</b><a class="map-link" data-map-query="小豆島オリーブ公園 香川県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%82%AA%E3%83%AA%E3%83%BC%E3%83%96%E5%85%AC%E5%9C%92%20%E9%A6%99%E5%B7%9D%E7%9C%8C%20%E6%97%A5%E6%9C%AC">小豆島橄欖公園</a> 拍照散策；若渡輪或纜車延誤，縮短為 30 分鐘。</li>
         <li><b>配合潮汐的彈性點：</b><a class="map-link" data-map-query="エンジェルロード 小豆島 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A8%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AB%E3%83%AD%E3%83%BC%E3%83%89%20%E5%B0%8F%E8%B1%86%E5%B3%B6%20%E6%97%A5%E6%9C%AC">天使之路</a> 僅在退潮時間、天光與交通都能配合時安排 30–45 分鐘；否則移至隔天早上，並相應縮短高松城跡停留。不要為等退潮壓縮山區下山與入住時間。</li>
       </ul>
       <div class="autumn-note"><b>🍁 寒霞溪：歷年 11 月上旬–下旬。</b>11/28 已在參考期尾段；出發前確認葉況，若高處落葉多，縮短山頂停留，把時間留給較低處與橄欖公園。山路、週末車潮及纜車排隊都需留緩衝。<a href="https://japantravel.navitime.com/zh-tw/area/jp/feature/autumn/area/A0737" target="_blank" rel="noopener noreferrer">NAVITIME 香川賞楓資料</a></div>
+      <section class="ferry-note" aria-label="去程人車渡輪備註">
+        <div class="section-title">🚢 人車渡輪｜高松 ⇄ 土庄</div>
+        <p><b>11/28（六）建議：09:00 高松 → 10:00 土庄。</b><br>較早備選：08:02 → 09:02；較晚備選：10:00 → 11:00。皆為可載車渡輪，航程約 60 分鐘。</p>
+        <p><b>08:00–08:15 到車輛候船區</b>，依工作人員指示排隊後辦理購票；官方要求預約車輛最晚 08:30 抵達，逾時可能取消車位。</p>
+        <p>導航：<a class="map-link" data-map-query="小豆島フェリー 高松港 土庄行き 香川県高松市サンポート8-22" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E9%AB%98%E6%9D%BE%E6%B8%AF%20%E5%9C%9F%E5%BA%84%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E9%AB%98%E6%9D%BE%E5%B8%82%E3%82%B5%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%888-22">高松港・土庄行人車渡輪乘船處</a> → <a class="map-link" data-map-query="小豆島フェリー 土庄港 高松行き 香川県小豆郡土庄町甲6194-11" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E5%9C%9F%E5%BA%84%E6%B8%AF%20%E9%AB%98%E6%9D%BE%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E5%B0%8F%E8%B1%86%E9%83%A1%E5%9C%9F%E5%BA%84%E7%94%BA%E7%94%B26194-11">土庄港・高松行人車渡輪乘船處</a>。汽車一起上船，不停在高松過夜。若改搭 10:00 班次，上島行程順延，先縮短橄欖公園與天使之路。</p>
+        <small>日本時間。依 2026/10/13 官網公布班表規劃；未預約、未確認當日車位，出發前再核對是否改點或停航。<a href="https://www.shikokuferry.com/route2" target="_blank" rel="noopener noreferrer">官方時刻表／運價／乘船處</a></small>
+      </section>
+      <details class="ferry-note">
+        <summary>人車同行注意事項（預約、票券、登船）</summary>
+        <ul>
+          <li><b>預約去、回兩段車位：</b>土庄航線採網路預約，乘船日前 2 個月開放，至出航前 4 小時截止；11/28、11/29 已在可預約期間，建議先確認車位。<a href="https://yoyaku.shikokuferry.com/" target="_blank" rel="noopener noreferrer">車位預約與報到規定</a></li>
+          <li><b>預約車位不等於買好船票：</b>攜帶預約確認信與車內的「車檢證（車検証）」，到港口窗口購票付款。車輛長度以車檢證為準；租車尚未取車、資料不確定時，先向船公司詢問填寫方式。</li>
+          <li><b>車票已含駕駛 1 人：</b>其他同行乘客另計旅客票，避免重複買駕駛票。運價依車長而異，另可能加燃油調整費；去回同航線可詢問往復票。實際總額按車型與人數計算。<a href="https://www.shikokuferry.com/route2" target="_blank" rel="noopener noreferrer">官方時刻表／運價／乘船處</a> · <a href="https://www.shikokuferry.com/faq" target="_blank" rel="noopener noreferrer">船公司常見問題</a></li>
+          <li><b>認明「フェリー」：</b>選可載汽車的渡輪，不是「高速艇」。導航到土庄航線車輛候船區，別排到池田港航線；若換船公司或港口，先確認原預約與船票能否變更。</li>
+          <li><b>租車與上下船：</b>取車時向租車公司確認可搭渡輪及島上道路救援安排。依船員指揮低速上船、停妥熄火；同車乘客如何登船依現場指示。手機、證件、外套等隨身物品先帶好，再依指示前往客艙。</li>
+          <li><b>天候與變更：</b>前一天及出發當天查看<a href="https://www.shikokuferry.com/" target="_blank" rel="noopener noreferrer">即時運航公告</a>；候補班次也需有車位，不能保證滿船時搭得到下一班。更改行程請同步更改或取消車位，費用依預約規則。</li>
+        </ul>
+      </details>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜東橫 INN 德島駅眉山口（前一晚住宿）。<b>時間衝突：官方供餐 06:30–09:00，原訂 06:00 出發無法用餐。</b>若保留 09:00 渡輪，入住時先詢問早出發餐點；未確認可外帶，無法提供則前晚另備早餐。若要吃飯店早餐，建議 06:30–07:00 用餐、07:00 出發，改預約 10:00 渡輪（09:00–09:15 到港），並依渡輪備註縮短上島行程；不可吃完早餐仍趕原訂 09:00 船班。<br><small><a href="https://www.toyoko-inn.com/china_cn/search/detail/00116/" target="_blank" rel="noopener noreferrer">飯店官方早餐時間</a></small></div>
         <div><b>午餐：</b>小豆島「忠左衛門」手生素麵 / 橄欖油義大利麵</div>
         <div><b>晚餐：</b>小豆島當地海鮮居酒屋</div>
       </div>
@@ -489,13 +520,23 @@
       <img class="day-image" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="栗林公園">
       <div class="section-title">📍 景點安排</div>
       <ul>
-        <li><b>上午返回高松：高松城跡（45–60 分鐘）</b> — 以中午前返回高松為目標，搭渡輪返回高松後，先走訪港口附近的 <a class="map-link" data-map-query="高松城跡 玉藻公園 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E6%9D%BE%E5%9F%8E%E8%B7%A1%20%E7%8E%89%E8%97%BB%E5%85%AC%E5%9C%92%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">高松城跡（玉藻公園）</a>，欣賞海水護城河與城跡；這站以城跡公園散策為主。<a href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html" target="_blank" rel="noopener noreferrer">官方資訊</a></li>
+        <li><b>09:20–09:35 到港：</b>人車一同前往 <a class="map-link" data-map-query="小豆島フェリー 土庄港 高松行き 香川県小豆郡土庄町甲6194-11" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E5%9C%9F%E5%BA%84%E6%B8%AF%20%E9%AB%98%E6%9D%BE%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E5%B0%8F%E8%B1%86%E9%83%A1%E5%9C%9F%E5%BA%84%E7%94%BA%E7%94%B26194-11">土庄港・高松行人車渡輪乘船處</a> 報到購票，搭 10:20 渡輪，11:20 抵達高松；下船、找停車位另留約 20–30 分鐘。</li>
+        <li><b>11:50–12:40：高松城跡</b> — 人車下船、停妥汽車後，先走訪港口附近的 <a class="map-link" data-map-query="高松城跡 玉藻公園 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E6%9D%BE%E5%9F%8E%E8%B7%A1%20%E7%8E%89%E8%97%BB%E5%85%AC%E5%9C%92%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">高松城跡（玉藻公園）</a>，欣賞海水護城河與城跡；這站以城跡公園散策為主。<a href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html" target="_blank" rel="noopener noreferrer">官方資訊</a></li>
         <li><b>午餐後 14:00–16:00 🍁：</b>參觀四國最著名的回遊式日本庭園 <a class="map-link" data-map-query="栗林公園 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%97%E6%9E%97%E5%85%AC%E5%9C%92%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">栗林公園</a>，預留完整 2 小時欣賞庭園紅葉與水面倒影。</li>
         <li><b>16:30 後：</b><a class="map-link" data-map-query="瓦町 商店街 高松市 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%93%A6%E7%94%BA%20%E5%95%86%E5%BA%97%E8%A1%97%20%E9%AB%98%E6%9D%BE%E5%B8%82%20%E6%97%A5%E6%9C%AC">瓦町商店街</a>購物散策，享受溫泉飯店。</li>
       </ul>
       <div class="autumn-note"><b>🍁 栗林公園：歷年 11 月中旬–12 月上旬。</b>11/29 是本次賞楓主力。若小豆島回程延誤，先縮短高松城跡與購物，確保 15:00 前進栗林公園。11 月一般開園至 17:00；2026 夜間點燈日期未在本次查證中確認，不將夜楓列為固定行程。<a href="https://japantravel.navitime.com/zh-tw/area/jp/feature/autumn/area/A0737" target="_blank" rel="noopener noreferrer">NAVITIME 觀賞期與時間</a></div>
+      <section class="ferry-note" aria-label="回程人車渡輪備註">
+        <div class="section-title">🚢 人車渡輪｜高松 ⇄ 土庄</div>
+        <p><b>11/29（日）建議：10:20 土庄 → 11:20 高松。</b><br>較早備選：09:25 → 10:25；較晚備選：11:25 → 12:25。皆為可載車渡輪，航程約 60 分鐘。</p>
+        <p><b>09:20–09:35 到土庄港車輛候船區</b>，官方要求預約車輛最晚 09:50 抵達。早餐後提早退房，另按住宿位置預留開車到港口的時間。</p>
+        <p>導航：<a class="map-link" data-map-query="小豆島フェリー 土庄港 高松行き 香川県小豆郡土庄町甲6194-11" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E5%9C%9F%E5%BA%84%E6%B8%AF%20%E9%AB%98%E6%9D%BE%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E5%B0%8F%E8%B1%86%E9%83%A1%E5%9C%9F%E5%BA%84%E7%94%BA%E7%94%B26194-11">土庄港・高松行人車渡輪乘船處</a> → <a class="map-link" data-map-query="小豆島フェリー 高松港 土庄行き 香川県高松市サンポート8-22" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B0%8F%E8%B1%86%E5%B3%B6%E3%83%95%E3%82%A7%E3%83%AA%E3%83%BC%20%E9%AB%98%E6%9D%BE%E6%B8%AF%20%E5%9C%9F%E5%BA%84%E8%A1%8C%E3%81%8D%20%E9%A6%99%E5%B7%9D%E7%9C%8C%E9%AB%98%E6%9D%BE%E5%B8%82%E3%82%B5%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%888-22">高松港・土庄行人車渡輪乘船處</a>。若搭 11:25 備選班次，午餐後優先栗林公園，高松城跡改短停或略過。</p>
+        <small>日本時間。依 2026/10/13 官網公布班表規劃；未預約、未確認當日車位，出發前再核對是否改點或停航。<a href="https://www.shikokuferry.com/route2" target="_blank" rel="noopener noreferrer">官方時刻表／運價／乘船處</a></small>
+      </section>
+      <div class="ferry-note"><b>回程報到提醒：</b>備妥預約確認信、車檢證及已購回程票（如有），仍需依船公司規定辦理報到。若早上補逛天使之路，須在 09:20–09:35 抵港目標前結束；潮汐不合就略過，不臨時耽誤已預約船班。</div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>無飯店早餐。建議 07:30–08:00 在住宿吃前晚買好的麵包、飯糰與飲料；或退房後在 <a class="map-link" data-map-query="セブンイレブン 小豆島土庄港店 香川県 日本" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%BB%E3%83%96%E3%83%B3%E3%82%A4%E3%83%AC%E3%83%96%E3%83%B3%20%E5%B0%8F%E8%B1%86%E5%B3%B6%E5%9C%9F%E5%BA%84%E6%B8%AF%E5%BA%97%20%E9%A6%99%E5%B7%9D%E7%9C%8C%20%E6%97%A5%E6%9C%AC">7-Eleven 小豆島土庄港店</a> 採買，預留 20–30 分鐘購買及用餐。09:20–09:35 前抵達車輛候船區，不等咖啡店開門，也不把早餐寄望於船上販售。<br><small><a href="https://location.sevenbank.co.jp/sevenbank/spot/detail?code=0000012139&amp;lang=ja" target="_blank" rel="noopener noreferrer">土庄港店位置資料</a></small></div>
         <div><b>午餐：</b>香川讚岐烏龍麵名店「竹清」 / 「さか枝」</div>
         <div><b>晚餐：</b>香川必吃名物「骨付鳥一鶴 (IKKAKU)」帶骨烤雞腿</div>
       </div>
@@ -522,6 +563,7 @@
       <div class="autumn-note"><b>🍁 金刀比羅宮：歷年 11 月上旬–12 月上旬。</b>11/30 配合參拜順看紅葉；登階時間比一般公園多，預留休息，午後維持丸龜城及琴平入住。<a href="https://japantravel.navitime.com/zh-tw/area/jp/feature/autumn/area/A0737" target="_blank" rel="noopener noreferrer">NAVITIME 參考觀賞期</a></div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜Dormy Inn 高松中央公園前（前一晚住宿）。建議 06:30–07:15 用餐，退房後預留往琴平的車程與停車時間，09:00 開始參拜金刀比羅宮。</div>
         <div><b>午餐：</b>參道下「田中屋」烏龍麵 / 中野烏龍麵學校</div>
         <div><b>晚餐：</b>琴平町內骨付鳥居酒屋</div>
       </div>
@@ -548,6 +590,7 @@
       <div class="autumn-note"><b>山區行程取捨：</b>12/1 不把祖谷紅葉列為保證看點，也不加其他山區追楓點。08:00 左右離開琴平，藤蔓橋與大步危遊船合計含山路、午餐預留約 5–5.5 小時；以 13:30 左右往高知為目標。若上午延誤，略過遊船，保留高知城入內參觀時間，進城前確認當日最後入場。</div>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜琴平公園飯店（前一晚住宿）。建議 07:00–07:40 用餐，08:00 左右出發往祖谷；前晚確認供餐開始時間。</div>
         <div><b>午餐：</b>祖谷溪「滝美のお宿」祖谷蕎麥麵與鹽烤鮎魚</div>
         <div><b>晚餐：</b>高知市區「明神丸」土佐赤牛燒肉 / 軍雞鍋</div>
       </div>
@@ -572,6 +615,7 @@
       </ul>
       <div class="section-title">🍱 美食推薦</div>
       <div class="food-grid">
+        <div><b>早餐：</b>飯店早餐｜高知舒適飯店（前一晚住宿）。建議 07:00–08:00 用餐，再進行最後採買；保留加油、還車與機場報到時間。</div>
         <div><b>午餐：</b>高知龍馬機場餐廳「司」享用最後的土佐料理</div>
       </div>
     </div>
